@@ -1,0 +1,149 @@
+:root {
+    /*Colour variables so they can be easily reused*/
+    --deep-twilight: #363062;
+    --twilight-blue: #435585;
+    --dusky-sky: #818FB4;
+    --pale-parchment: #F5E8C7;
+}
+
+body {
+    /*Uses the created var so the hex code doesn't have to be retyped every time*/
+    background-color: var(--deep-twilight);
+    color: var(--pale-parchment);
+    font-family: "MS Gothic", "Times New Roman", Times, serif;
+    font-size: 20px;
+}
+
+.book {
+    /*Styles the book images*/
+    height: 522px;
+    width: 324px;
+}
+
+/*Center an image*/
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+h4 {
+    margin: 150px 0 25px 0;
+    padding: 0 30px;
+    line-height: 30px;
+}
+
+button {
+    background-color: var(--deep-twilight);
+    color: var(--pale-parchment);
+    padding: 25px 50px;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+/*Center text*/
+.expandable-content h3 {
+    text-align: center;
+}
+
+/*Styles for the sticky header, allthough likely nevver used in this exact combination before, these are all atributes we have worked with in the past*/
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.6s;
+    padding: 15px 12px;
+    background-color: var(--twilight-blue);
+    z-index: 999;
+}
+
+/*Styles for the "logo." It's not techincally a logo since I just used text but calling it a logo is a common convention*/
+header .logo {
+    position: relative;
+    font-weight: 700;
+    color: var(--dusky-sky);
+    text-decoration: none;
+    font-size: 2em;
+    transition: 0.6s;
+}
+
+/*Styles for the unordered list*/
+header ul {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/*Styles for the list elements*/
+header ul li {
+    position: relative;
+    list-style: none;
+}
+
+/*Styles for the anchor tags within the list elements*/
+header ul li a {
+    position: relative;
+    margin: 0 12px;
+    text-decoration: none;
+    color: var(--dusky-sky);
+    letter-spacing: 2px;
+    font-weight: 500;
+    transition: 0.6s;
+}
+
+/*To put it simply, this class is always hidden but, using JavaScript, the class below is added to what has this class when the user clicks the little icon*/
+.expandable-content-wrapper {
+	opacity: 0;
+	visibility: hidden;
+	overflow: hidden;
+	max-height: 0;
+	transition: opacity .5s ease-out, max-height .5s ease-out, visibility 0s .5s;
+}
+
+/*Makes it so expandable-content-wrapper is visible*/
+.expandable-open .expandable-content-wrapper {
+	opacity: 1;
+	visibility: visible;
+	max-height: 10000px;
+	transition: opacity .5s ease-out, max-height .5s ease-out, visibility 0s;
+}
+
+/*More expandable stuff*/
+.expandable {
+	-webkit-text-stroke-width: 0;
+	font-weight: bold;
+    margin: 0 25px;
+}
+
+.expandable-title {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 14px;
+	user-select: none;
+	background-color: var(--twilight-blue);
+	border-radius: 10px 10px 0 0;
+}
+
+.expandable-content {
+	border: 1px solid var(--twilight-blue);
+	background-color: var(--twilight-blue);
+	border-radius: 0 0 10px 10px;
+}
+
+.expandable-icon {
+	transition: transform 0.5s;
+	cursor: pointer;
+	font-size: 35px;
+}
+
+.expandable-open .expandable-icon {
+	transform: rotate(-90deg);
+}
